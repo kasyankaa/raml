@@ -1,0 +1,20 @@
+#%RAML 1.0 DataType
+description: Details on the tax override.
+type: object
+properties:
+  overrideType:
+    required: true
+    displayName: overrideType
+    description: Classifies the override as taxable or nontaxable.
+    type: string
+    enum:
+    - TAXABLE
+    - NONTAXABLE
+  overrideReasonCode:
+    required: false
+    displayName: overrideReasonCode
+    description: |
+      A code that indicates the reason for the override.
+    type: string
+    minLength: 1
+    maxLength: 4

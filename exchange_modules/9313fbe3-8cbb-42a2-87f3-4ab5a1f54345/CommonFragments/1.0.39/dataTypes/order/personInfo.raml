@@ -1,0 +1,35 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  isCommercialAddress?:
+    type: boolean | nil
+  isAddressVerified?:
+    type: boolean | nil
+  addressId?:
+    type: string | nil
+  address?:
+    type: !include ../address.raml
+  taxGeoCode?:
+    type: string | nil
+  companyName?:
+    type: string | nil
+  department?:
+    type: string | nil
+  communication?:
+    type: array
+    items: !include ../digitalCommunication.raml
+  contact?:
+    type: object
+    properties:
+      jobTitle?:
+       type: string | nil
+      personId?:
+       type: string | nil
+#      personInfoKey?:
+#       type: string | nil
+      title?:
+       type: string | nil
+      personNameType?:
+       type: string | nil
+      name?:
+       type: !include ../personName.raml

@@ -1,0 +1,34 @@
+#%RAML 1.0 DataType
+properties:
+  totalPastDueAmount: 
+    type: number
+    default: 0
+    example: 417.09
+  totalBalanceDueAmount:
+    type: number
+    default: 0
+    example: 314.55
+  unappliedAmount:
+    type: number
+    default: 0
+    example: -200.33
+  unappliedAdjustmentAmount?:
+    type: number
+    default: 0.00
+  unappliedDepositAmount?:
+    type: number
+    default: 0
+    example: -200.33
+  totalUnappliedCreditAmount?:
+    type: number
+    default: 0
+    example: -214.00        
+  balanceDueDate?: 
+    type: date-only | nil
+    example: 2021-11-02
+  lastPaymentDate?:
+    type: date-only | nil
+    example: 2020-11-02
+  pastDueDays:
+    type: integer
+    description: days past due of the oldest amount owed

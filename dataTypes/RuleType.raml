@@ -1,0 +1,41 @@
+#%RAML 1.0 DataType
+
+displayName: RuleType
+description: ''
+type: object
+properties:
+  ruleId:
+    required: false
+    displayName: ruleId
+    description: An identifier for user-defined rule.
+    type: integer
+  userDefined:
+    required: false
+    displayName: userDefined
+    description: An identifier for user-defined rule. This identifier is useful for troubleshooting.
+    type: boolean
+  salesTaxHolidayIndicator:
+    required: false
+    displayName: salesTaxHolidayIndicator
+    description: Indicates whether this rule applies as a Sales Tax Holiday.
+    type: boolean
+  taxRuleType:
+    required: false
+    displayName: taxRuleType
+    description: Indicates the tax rule type of this rule.
+    type: string
+    enum:
+    - TAXABILITY_RULE
+    - MAX_TAX_RULE
+    - TAX_BASIS_RULE
+    - RECOVERABILITY_RULE
+    - TAX_INCLUSION_RULE
+    - POST_CALCULATION_EVALUATION_RULE
+    - CREDIT_RULE
+    - BASIS_APPORTIONMENT_RULE
+    - INVOICE_TEXT_RULE
+    - TAX_RATE_ADJUSTMENT_RULE
+    - TAX_APPORTIONMENT_RULE
+    - TAX_ACCUMULATION_RULE
+    - REPORTING_BASIS_RULE
+  

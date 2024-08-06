@@ -1,0 +1,17 @@
+#%RAML 1.0 DataType
+example: !include ../examples/driversLicenseExample.raml
+properties:
+  identifier:
+    type: string
+    description: licence number 
+  issueDate?:
+    type: date-only | nil
+    description: license issue date
+  expirationDate?:
+    type: date-only | nil
+    description: license expiration date
+  issueingState?:
+    type: string | nil
+    description: persons last name
+  
+  

@@ -1,0 +1,18 @@
+#%RAML 1.0 NamedExample
+error500Example:
+  {
+    "correlationId": "d0fb00e1-23c1-416b-a27d-0c50d3e643d2",
+    "tracingId": "54321",
+    "status": {
+        "code": "500",
+        "messages": [
+            {
+                "type": "Error",
+                "severity": "1",
+                "reasonCode": "ADT-500",
+                "context": "vertex-sys-api-app-v1",
+                "message": "HTTP POST on resource 'https://vdlvtx101:9443/vertex-ws/services/CalculateTax90' failed: internal server error (500)."
+            }
+        ]
+    }
+}

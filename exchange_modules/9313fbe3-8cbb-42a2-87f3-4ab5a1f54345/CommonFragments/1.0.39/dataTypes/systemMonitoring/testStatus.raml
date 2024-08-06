@@ -1,0 +1,39 @@
+#%RAML 1.0 DataType
+properties:
+  systemId:
+    type: integer
+    description: system identifier
+  zoneId?:
+    type: string
+    description: Zode identifier
+  isOnTest:
+    type: boolean | nil
+    description: test indicator
+  testTypeCode?:
+    type: string | nil
+    description: test code
+  sequenceId?:
+    type: integer | nil
+    description: test sequence Id
+  effectiveDateTime?: 
+    type: datetime | nil
+    description: test effective date and time
+    example: '2015-02-25T18:35:00-05:00'
+  expirationDateTime?: 
+    type: datetime | nil
+    description: test end date and time
+    example: '2015-02-25T19:35:00-05:00'
+  testCategoryCode?: 
+    type: string | nil
+    description: testing catefory code 
+    example: '1'
+  message?:
+    type: string | nil
+    description: test status message
+  isClearRestoreRequired?:
+    type: boolean | nil
+    description: identifies if a clear restore is required
+  lastModifiedEmployeeId?:
+    type: integer | nil
+    description:  employee id reponsible for the last change
+    example: 90030

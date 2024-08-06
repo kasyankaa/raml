@@ -1,0 +1,351 @@
+#%RAML 1.0 NamedExample
+response-example1:
+  {
+  "correlationId": "4a0dd210-03bf-11ed-94ce-b46bfc583929",
+  "tracingId": "sarabh-local-req",
+  "taxTransactionResponseType": "InvoiceResponse",
+  "documentNumber": "820487468",
+  "postingDate": "2022-07-13",
+  "documentDate": "2022-07-13",
+  "transactionId": "820487468",
+  "transactionType": "SALE",
+  "seller": {
+    "company": "001",
+    "division": "433",
+    "department": "823",
+    "physicalOrigin": {
+      "taxAreaId": 60050030,
+      "streetAddress1": "452 SABLE BLVD",
+      "city": "AURORA",
+      "mainDivision": "CO",
+      "subDivision": "ADAMS",
+      "postalCode": "800110813"
+    },
+    "administrativeOrigin": {
+      "taxAreaId": 60050030,
+      "streetAddress1": "452 SABLE BLVD",
+      "city": "AURORA",
+      "mainDivision": "CO",
+      "subDivision": "ADAMS",
+      "postalCode": "800110813"
+    }
+  },
+  "customer": {
+    "destination": {
+      "taxAreaId": 510210030,
+      "streetAddress1": "46400235 BLUFF PL",
+      "city": "CHEYENNE",
+      "mainDivision": "WY",
+      "subDivision": "LARAMIE",
+      "postalCode": "820094511"
+    }
+  },
+  "subTotal": 30.0,
+  "total": 30.0,
+  "totalTax": 0.0,
+  "lineItems": [
+    {
+      "lineItemNumber": 1,
+      "product": {
+        "productCode": "MON",
+        "productClass": "MON"
+      },
+      "quantity": 1.0,
+      "fairMarketValue": 10.0,
+      "extendedPrice": 10.0,
+      "taxes": [
+        {
+          "taxResult": "NONTAXABLE",
+          "taxType": "SALES",
+          "situs": "DESTINATION",
+          "reasonCode": "0834",
+          "isService": true,
+          "taxCollectedFromParty": "BUYER",
+          "jurisdiction": {
+            "jurisdictionName": "WYOMING",
+            "jurisdictionLevel": "STATE",
+            "jurisdictionId": 43060
+          },
+          "calculatedTax": 0.0,
+          "effectiveRate": 0.0,
+          "nonTaxable": 10.0,
+          "taxable": 0.0,
+          "imposition": {
+            "name": "Sales and Use Tax",
+            "impositionId": 1
+          },
+          "impositionType": {
+            "typeDescription": "General Sales and Use Tax",
+            "impositionTypeId": 1
+          },
+          "taxRuleId": {
+            "ruleId": 25224
+          },
+          "inclusionRuleId": {
+            "ruleId": 1293519
+          },
+          "includedTax": 0.0
+        },
+        {
+          "taxResult": "NONTAXABLE",
+          "taxType": "SALES",
+          "situs": "DESTINATION",
+          "reasonCode": "0834",
+          "isService": true,
+          "taxCollectedFromParty": "BUYER",
+          "jurisdiction": {
+            "jurisdictionName": "LARAMIE",
+            "jurisdictionLevel": "COUNTY",
+            "jurisdictionId": 43168
+          },
+          "calculatedTax": 0.0,
+          "effectiveRate": 0.0,
+          "nonTaxable": 10.0,
+          "taxable": 0.0,
+          "imposition": {
+            "name": "Local Sales and Use Tax",
+            "impositionId": 1
+          },
+          "impositionType": {
+            "typeDescription": "General Sales and Use Tax",
+            "impositionTypeId": 1
+          },
+          "taxRuleId": {
+            "ruleId": 48367495
+          },
+          "inclusionRuleId": {
+            "ruleId": 1281335
+          },
+          "includedTax": 0.0,
+          "nominalRate": 0.02
+        }
+      ],
+      "totalTax": 0.0,
+      "flexibleFields": {
+        "flexibleDateField": [
+          {
+            "value": "2022-07-13",
+            "fieldId": 1
+          }
+        ]
+      },
+      "assistedParameters": [
+        {
+          "value": "Wed Jul 13 00:00:00 UTC 2022",
+          "paramName": "FLEX.input.PostingDt",
+          "phase": "PRE",
+          "ruleName": "Posting Date Fix"
+        },
+        {
+          "value": "Wed Jul 13 00:00:00 UTC 2022",
+          "paramName": "postingDate",
+          "phase": "PRE",
+          "ruleName": "Posting Date Fix",
+          "originalValue": "2022-07-13"
+        }
+      ]
+    },
+    {
+      "lineItemNumber": 2,
+      "product": {
+        "productCode": "MONFA",
+        "productClass": "MONFA"
+      },
+      "quantity": 1.0,
+      "fairMarketValue": 10.0,
+      "extendedPrice": 10.0,
+      "taxes": [
+        {
+          "taxResult": "NONTAXABLE",
+          "taxType": "SALES",
+          "situs": "DESTINATION",
+          "reasonCode": "0834",
+          "isService": true,
+          "taxCollectedFromParty": "BUYER",
+          "jurisdiction": {
+            "jurisdictionName": "WYOMING",
+            "jurisdictionLevel": "STATE",
+            "jurisdictionId": 43060
+          },
+          "calculatedTax": 0.0,
+          "effectiveRate": 0.0,
+          "nonTaxable": 10.0,
+          "taxable": 0.0,
+          "imposition": {
+            "name": "Sales and Use Tax",
+            "impositionId": 1
+          },
+          "impositionType": {
+            "typeDescription": "General Sales and Use Tax",
+            "impositionTypeId": 1
+          },
+          "taxRuleId": {
+            "ruleId": 25224
+          },
+          "inclusionRuleId": {
+            "ruleId": 1293519
+          },
+          "includedTax": 0.0
+        },
+        {
+          "taxResult": "NONTAXABLE",
+          "taxType": "SALES",
+          "situs": "DESTINATION",
+          "reasonCode": "0834",
+          "isService": true,
+          "taxCollectedFromParty": "BUYER",
+          "jurisdiction": {
+            "jurisdictionName": "LARAMIE",
+            "jurisdictionLevel": "COUNTY",
+            "jurisdictionId": 43168
+          },
+          "calculatedTax": 0.0,
+          "effectiveRate": 0.0,
+          "nonTaxable": 10.0,
+          "taxable": 0.0,
+          "imposition": {
+            "name": "Local Sales and Use Tax",
+            "impositionId": 1
+          },
+          "impositionType": {
+            "typeDescription": "General Sales and Use Tax",
+            "impositionTypeId": 1
+          },
+          "taxRuleId": {
+            "ruleId": 48367495
+          },
+          "inclusionRuleId": {
+            "ruleId": 1281335
+          },
+          "includedTax": 0.0,
+          "nominalRate": 0.02
+        }
+      ],
+      "totalTax": 0.0,
+      "flexibleFields": {
+        "flexibleDateField": [
+          {
+            "value": "2022-07-13",
+            "fieldId": 1
+          }
+        ]
+      },
+      "assistedParameters": [
+        {
+          "value": "Wed Jul 13 00:00:00 UTC 2022",
+          "paramName": "FLEX.input.PostingDt",
+          "phase": "PRE",
+          "ruleName": "Posting Date Fix"
+        },
+        {
+          "value": "Wed Jul 13 00:00:00 UTC 2022",
+          "paramName": "postingDate",
+          "phase": "PRE",
+          "ruleName": "Posting Date Fix",
+          "originalValue": "2022-07-13"
+        }
+      ]
+    },
+    {
+      "lineItemNumber": 3,
+      "product": {
+        "productCode": "QSP",
+        "productClass": "QSP"
+      },
+      "quantity": 1.0,
+      "fairMarketValue": 10.0,
+      "extendedPrice": 10.0,
+      "taxes": [
+        {
+          "taxResult": "NONTAXABLE",
+          "taxType": "SALES",
+          "situs": "DESTINATION",
+          "reasonCode": "0834",
+          "isService": true,
+          "taxCollectedFromParty": "BUYER",
+          "jurisdiction": {
+            "jurisdictionName": "WYOMING",
+            "jurisdictionLevel": "STATE",
+            "jurisdictionId": 43060
+          },
+          "calculatedTax": 0.0,
+          "effectiveRate": 0.0,
+          "nonTaxable": 10.0,
+          "taxable": 0.0,
+          "imposition": {
+            "name": "Sales and Use Tax",
+            "impositionId": 1
+          },
+          "impositionType": {
+            "typeDescription": "General Sales and Use Tax",
+            "impositionTypeId": 1
+          },
+          "taxRuleId": {
+            "ruleId": 25224
+          },
+          "inclusionRuleId": {
+            "ruleId": 1293519
+          },
+          "includedTax": 0.0
+        },
+        {
+          "taxResult": "NONTAXABLE",
+          "taxType": "SALES",
+          "situs": "DESTINATION",
+          "reasonCode": "0834",
+          "isService": true,
+          "taxCollectedFromParty": "BUYER",
+          "jurisdiction": {
+            "jurisdictionName": "LARAMIE",
+            "jurisdictionLevel": "COUNTY",
+            "jurisdictionId": 43168
+          },
+          "calculatedTax": 0.0,
+          "effectiveRate": 0.0,
+          "nonTaxable": 10.0,
+          "taxable": 0.0,
+          "imposition": {
+            "name": "Local Sales and Use Tax",
+            "impositionId": 1
+          },
+          "impositionType": {
+            "typeDescription": "General Sales and Use Tax",
+            "impositionTypeId": 1
+          },
+          "taxRuleId": {
+            "ruleId": 48367495
+          },
+          "inclusionRuleId": {
+            "ruleId": 1281335
+          },
+          "includedTax": 0.0,
+          "nominalRate": 0.02
+        }
+      ],
+      "totalTax": 0.0,
+      "flexibleFields": {
+        "flexibleDateField": [
+          {
+            "value": "2022-07-13",
+            "fieldId": 1
+          }
+        ]
+      },
+      "assistedParameters": [
+        {
+          "value": "Wed Jul 13 00:00:00 UTC 2022",
+          "paramName": "FLEX.input.PostingDt",
+          "phase": "PRE",
+          "ruleName": "Posting Date Fix"
+        },
+        {
+          "value": "Wed Jul 13 00:00:00 UTC 2022",
+          "paramName": "postingDate",
+          "phase": "PRE",
+          "ruleName": "Posting Date Fix",
+          "originalValue": "2022-07-13"
+        }
+      ]
+    }
+  ]
+}

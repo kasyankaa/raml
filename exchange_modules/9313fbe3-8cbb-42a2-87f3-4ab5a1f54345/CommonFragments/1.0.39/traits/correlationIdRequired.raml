@@ -1,0 +1,7 @@
+#%RAML 1.0 Trait
+description: RAML Trait to request Correlation ID which is a unique identifier value that is attached to requests and messages that allow reference to a particular transaction or event chain
+usage: 1. Add this Exchange dependency to your API specification project <br> 2. Declare an element under the _traits_ node in your main API spec file including the imported dependency main raml file <br> 3. Apply the trait to the resource that needs correlation id enforcement by using the declared element as an item in the _is_ node 
+headers:
+  correlation_id:
+    type: string
+    description: Correlation ID would be generated at originating entry point API  and passed downstream APIs to link the transactions across API tiers

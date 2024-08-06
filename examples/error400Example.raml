@@ -1,0 +1,18 @@
+#%RAML 1.0 NamedExample
+error400Example:
+  {
+    "correlationId": "b0a9deea-811d-4207-9176-d3273a8460fb",
+    "tracingId": "54321",
+    "status": {
+        "code": "400",
+        "messages": [
+            {
+                "type": "Error",
+                "severity": "1",
+                "reasonCode": "ADT-400",
+                "context": "vertex-sys-api-app-v1",
+                "message": "required key [lineItems] not found"
+            }
+        ]
+    }
+}

@@ -1,0 +1,80 @@
+#%RAML 1.0 DataType
+displayName: TaxRegistrationType
+description: ''
+type: object
+properties:
+      isoCountryCode:
+        required: false
+        displayName: isoCountryCode
+        description: The 2-character or 3-character alphabetic ISO 3166 code indicating the country represented by the registration.
+        type: string
+        pattern: '[A-Z]{2,3}'
+      mainDivision:
+        required: false
+        displayName: mainDivision
+        description: The proper name or postal abbreviation of the state, province, or territory of the tax registration.
+        type: string
+        minLength: 1
+        maxLength: 60
+      hasPhysicalPresenceIndicator:
+        required: false
+        displayName: hasPhysicalPresenceIndicator
+        description: Indicates whether or not the entity has a physical presence in the country represented by the registration.
+        type: boolean
+      jurisdictionId:
+        required: false
+        displayName: jurisdictionId
+        description: The Vertex-specific number that identifies a jurisdiction.
+        type: integer
+        minimum: 0
+        maximum: 999999999
+        format: int32
+      taxRegistrationNumber:
+        required: false
+        displayName: TaxRegistrationNumber
+        description: The tax registration ID number.
+        type: string
+        minLength: 0
+        maxLength: 40
+      nexusOverride:
+        required: false
+        displayName: NexusOverride
+        description: Information for the nexus override.
+        type: array
+        items:
+          type: NexusOverride
+      physicalLocation:
+        required: false
+        displayName: PhysicalLocation
+        description: The physical location associated with the tax registration. Use the taxAreaId or address information to identify the physical location.
+        type: array
+        items:
+          type: PhysicalLocation
+      impositionType:
+        required: false
+        displayName: ImpositionType
+        description: The type description that is assigned to the imposition.
+        type: object
+        properties:
+          typeDescription:
+            required: false
+            displayName: typeDescription
+            description: The type description that is assigned to the imposition.
+            type: string
+          userDefined:
+            required: false
+            displayName: userDefined
+            description: |
+              An identifier for user-defined imposition type. This identifier is useful for troubleshooting.
+            type: boolean
+          impositionTypeId:
+            required: false
+            displayName: impositionTypeId
+            description: An identifier for the impositionType.
+            type: integer
+            format: int32
+          withholdingType:
+            required: false
+            displayName: withholdingType
+            description: withholding type of the impositionType.
+            type: string

@@ -1,0 +1,38 @@
+#%RAML 1.0 DataType
+type: object
+description: MMB database common fields for address. 
+
+properties:
+  addressLine1:
+    type: string
+    description: Line 1 of the address.
+    minLength: 1
+    maxLength: 60
+  addressLine2:
+    type: string | nil
+    required: false
+    description: Line 2 of the address.
+  city:
+    type: string
+    description: City where this address is located.
+    minLength: 1
+    maxLength: 30
+  state:
+    type: string
+    description: State in which this address is located.
+    minLength: 1
+    maxLength: 3
+  postalCode:
+    type: string
+    description: Postal code for this address.
+    minLength: 1
+    maxLength: 10
+  county:
+    type: string
+    minLength: 1
+    maxLength: 30
+  country:
+    type: string
+    required: true
+    maxLength: 30
+    default: "USA"

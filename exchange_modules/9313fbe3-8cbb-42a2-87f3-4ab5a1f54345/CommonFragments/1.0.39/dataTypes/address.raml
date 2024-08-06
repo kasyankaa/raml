@@ -1,0 +1,37 @@
+#%RAML 1.0 DataType
+type: object
+description: Primitive class. Used to standardize physical address data.
+properties:
+  addressLine1:
+    type: string | nil
+    description: Line 1 of the address.
+  addressLine2?:
+     type: string | nil
+     description: Line 2 of the address.
+  addressLine3?:
+    type: string | nil
+    description: Line 3 of the address.
+  city:
+    type: string | nil
+    description: City where this address is located.
+  state:
+    type: string | nil
+    description: State in which this address is located.
+  postalCode:
+    type: string | nil
+    description: Postal code for this address.
+  county?:
+    type: string | nil
+    description: County in which this address is located.
+  country?:
+    type: string | nil
+    description: Country in which this address is located.
+  crossStreet?:
+    type: string | nil
+    description: Street in which this address crosses or connects to.
+  longitude?:
+    type: string | nil
+    description: Geographic coordinate that specifies the east–west position of this address on the Earth's surface.
+  latitude?:
+    type: string | nil
+    description: Geographic coordinate that specifies the north–south position of this address on the Earth's surface.

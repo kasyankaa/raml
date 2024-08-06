@@ -1,0 +1,517 @@
+#%RAML 1.0 DataType
+displayName: LineItemQSIType
+description: Line Item declaration for Quotation Request message.
+type: object
+properties:
+  lineItemNumber:
+    required: false
+    displayName: lineItemNumber
+    description: A line number for the line item. This number can be used as a reference in reports or in audits. If no line item number is supplied, a number will be assigned.
+    type: integer
+    format: int64
+  taxDate:
+    required: false
+    displayName: taxDate
+    description: The date on which the line item record was produced. This can also be represented as a PO line item date, a lease line item date, and so on. Defaults to the documentDate of the transaction.
+    type: date-only
+  isMulticomponent:
+    required: false
+    displayName: isMulticomponent
+    description: |
+        Indicates whether the calculation engine calculates component-level max tax, where applicable. Amounts at the child level of the multi-component item are used for tax calculation. Amounts at the parent level are ignored. Set this attribute to true for line items at the parent level only. Line items at the child level remain false. Defaults to false.
+    type: boolean
+  locationCode:
+    required: false
+    displayName: locationCode
+    description: A value that can be used for tax return filing in jurisdictions that require taxes to be filed for individual retail locations.
+    type: string
+    minLength: 1
+    maxLength: 20
+  deliveryTerm:
+    required: false
+    displayName: deliveryTerm
+    description: |
+        An identifier that determines the vendor or customer jurisdiction in which the title transfer of a supply takes place. This is also known as Shipping Terms. Delivery Terms information could be critical to determine the place of supply, for example, in distance selling.
+    type: string
+    enum:
+    - EXW
+    - FCA
+    - FAS
+    - FOB
+    - CFR
+    - CIF
+    - CPT
+    - CIP
+    - DAF
+    - DES
+    - DEQ
+    - DDU
+    - DDP
+    - DAP
+    - DAT
+    - SUP
+    - CUS
+  postingDate:
+    required: false
+    displayName: postingDate
+    description: The date when the transaction is posted for auditing and reporting purposes. If no date is provided, the Calculation Engine uses the date when the transaction was processed.
+    type: date-only
+  costCenter:
+    required: false
+    displayName: costCenter
+    description: A value that indicates a specific area of an organization generally related to functional or accounting areas.
+    type: string
+    minLength: 1
+    maxLength: 40
+  departmentCode:
+    required: false
+    displayName: departmentCode
+    description: A unique identifier that associates a line item to a department for purchasing purposes.
+    type: string
+    minLength: 1
+    maxLength: 40
+  generalLedgerAccount:
+    required: false
+    displayName: generalLedgerAccount
+    description: A value that is used with company's Chart of Accounts.
+    type: string
+    minLength: 1
+    maxLength: 40
+  materialCode:
+    required: false
+    displayName: materialCode
+    description: A value that represents a specific item or product.
+    type: string
+    minLength: 1
+    maxLength: 40
+  projectNumber:
+    required: false
+    displayName: projectNumber
+    description: A unique identifier that associates a line item to a project for purchasing purposes.
+    type: string
+    minLength: 1
+    maxLength: 40
+  usage:
+    required: false
+    displayName: usage
+    description: Directly identifies a usage by user-defined usage code.
+    type: string
+    minLength: 1
+    maxLength: 40
+  usageClass:
+    required: false
+    displayName: usageClass
+    description: Directly identifies a usage class by user-defined usage class code.
+    type: string
+    minLength: 1
+    maxLength: 40
+  vendorSKU:
+    required: false
+    displayName: vendorSKU
+    description: A value that represents a specific item or product SKU number.
+    type: string
+    minLength: 1
+    maxLength: 40
+  countryOfOriginISOCode:
+    required: false
+    displayName: countryOfOriginISOCode
+    description: The 3-digit ISO 3166 code of the country where the product was produced or manufactured.
+    type: string
+    maxLength: 3
+  modeOfTransport:
+    required: false
+    displayName: modeOfTransport
+    description: |
+        A code that indicates the type of vehicle that transported the product across the country border. For a list of acceptable values, see the filing instructions for each country where you file an Intrastat report.
+    type: integer
+    maximum: 99
+    format: int32
+  natureOfTransaction:
+    required: false
+    displayName: natureOfTransaction
+    description: |
+        A code that indicates the type of transaction being declared for Intrastat purposes. For a list of acceptable values, see the filing instructions for each country where you file an Intrastat report.
+    type: integer
+    minimum: 1
+    maximum: 999
+    format: int32
+  intrastatCommodityCode:
+    required: false
+    displayName: intrastatCommodityCode
+    description: Used to classify the goods and services. For a list of acceptable values, see the filing instructions for each country where you file an Intrastat report.
+    type: string
+    pattern: '[0-9]{1,8}'
+  netMassKilograms:
+    required: false
+    displayName: netMassKilograms
+    description: The mass of the product in kilograms.
+    type: integer
+    format: int32
+  lineItemId:
+    required: false
+    displayName: lineItemId
+    description: |
+        An identifier that further defines the line item and corresponds to the transaction stored in the host system. This parameter is needed to perform synchronization services, but it is not used for reporting purposes.
+    type: string
+    minLength: 1
+    maxLength: 40
+  taxIncludedIndicator:
+    required: false
+    displayName: taxIncludedIndicator
+    description: Indicates whether tax is included in the Extended Price.
+    type: boolean
+  transactionType:
+    required: false
+    displayName: transactionType
+    description: An identifier for the specific transaction type to be used by the transaction and/or line item. If transactionType is not set at the line item level, the line item uses the transaction level value.
+    type: string
+    enum:
+    - SALE
+    - RENTAL
+    - LEASE
+  simplificationCode:
+    required: false
+    displayName: simplificationCode
+    description: A code that indicates a special action on the transaction being processed.
+    type: string
+    enum:
+    - CONSIGNMENT
+    - CALL_OFF
+    - TRIANGULATION
+    - REGISTRATION_GROUP
+  titleTransfer:
+    required: false
+    displayName: titleTransfer
+    description: A contractual term indicating where the title to goods actually changes hands from seller to buyer. This indicator is evaluated to determine the situs (or place of supply) for the transaction.
+    type: string
+    enum:
+    - ORIGIN
+    - IN_TRANSIT
+    - DESTINATION
+  chainTransactionPhase:
+    required: false
+    displayName: chainTransactionPhase
+    description: Identifies a phase within a series of transactions in which multiple invoices are raised with only a single movement of goods.
+    type: string
+    enum:
+    - MANUFACTURER
+    - INTERMEDIARY
+    - FINAL
+  exportProcedure:
+    required: false
+    displayName: exportProcedure
+    description: "The export procedure (sales) or import procedure (purchases) that \r\nis applied for INTRASTAT purposes."
+    type: string
+    minLength: 1
+    maxLength: 20
+  materialOrigin:
+    required: false
+    displayName: materialOrigin
+    description: The material origin type. Material Origin applies to countries, such as Brazil and India, where taxation can vary based on where the goods were acquired before sale.
+    type: string
+    minLength: 1
+    maxLength: 60
+  seller:
+    required: false
+    displayName: Seller
+    description: The seller for the transaction. The seller is described by the child elements and attributes.
+    type: Seller
+  customer:
+    required: false
+    displayName: Customer
+    description: The customer for the transaction. The customer is described by the child elements and attributes.
+    type: Customer
+  taxOverride:
+    required: false
+    displayName: TaxOverride
+    description: Details on the tax override.
+    type: TaxOverride
+  impositionToProcess:
+    required: false
+    displayName: ImpositionToProcess
+    description: Limits the taxes calculated for the transaction to a specific jurisdiction level and imposition type.
+    type: array
+    items:
+      type: ImpositionToProcess
+  jurisdictionOverride:
+    required: false
+    displayName: JurisdictionOverride
+    description: Details on the jurisdiction overrides.
+    type: array
+    items:
+      type: JurisdictionOverride
+  situsOverride:
+    required: false
+    displayName: SitusOverride
+    description: Details on the situs determination overrides.
+    type: object
+    properties:
+        taxingLocation:
+            required: true
+            displayName: taxingLocation
+            description: The address type to be used as the situs. Required if performing a situs override.
+            type: string
+            enum:
+                - ADMINISTRATIVE_DESTINATION
+                - ADMINISTRATIVE_ORIGIN
+                - DESTINATION
+                - PHYSICAL_ORIGIN
+  product:
+    required: false
+    displayName: Product
+    description: A code from the host system that identifies the product, material, service, or SKU number.
+    type: object
+    properties:
+      productCode:
+        required: false
+        displayName: ProductCode
+        description: A code from the host system that identifies the product, material, service, or SKU number.
+        type: string
+        minLength: 0
+        maxLength: 40
+      productClass:
+        required: false
+        displayName: ProductClass
+        description: A code used to represent groups or categories of products or services with similar taxability.
+        type: string
+        minLength: 0
+        maxLength: 40
+  lineType:
+    required: false
+    displayName: LineType
+    description: A code from the host system that identifies the line type of a line based telecommunication line item.
+    type: object
+    properties:
+      lineTypeCode:
+        required: false
+        description: |
+            A code from the host system that identifies the line type of a line based telecommunication line item.
+        type: string
+      direction:
+        required: false
+        displayName: direction
+        description: |
+          A code used to represent data stream direction for a line based telecommunication line item.
+        type: string
+        minLength: 0
+        maxLength: 40
+      content:
+        required: false
+        displayName: content
+        description: |
+          A code used to represent data stream content for a line based telecommunication line item.
+        type: string
+        minLength: 0
+        maxLength: 40
+      status:
+        required: false
+        displayName: status
+        description: |
+          A code used to represent data stream status for a line based telecommunication line item.
+        type: string
+        minLength: 0
+        maxLength: 40
+      accumulationLocation:
+        required: false
+        displayName: accumulationLocation
+        description: |
+          A code used to represent data stream accumulation location for a line based telecommunication line item.
+        type: string
+        minLength: 0
+        maxLength: 40
+  commodityCode:
+    required: false
+    displayName: CommodityCode
+    type: string
+    minLength: 0
+    maxLength: 40
+  commodityCodeType:
+    required: false
+    displayName: CommodityCodeType
+    description: The type of commodity code mapping. Required if commodity code is sent.
+    type: string
+    minLength: 0
+    maxLength: 60
+  usedCommodityCode:
+    required: false
+    displayName: UsedCommodityCode
+    description: The commodity code that calculation engine used during tax calculation.
+    type: string
+    minLength: 0
+    maxLength: 40
+  isUserDefinedCommodityCode:
+    required: false
+    displayName: IsUserDefinedCommodityCode
+    description: Indicates whether the returned commodity code is user defined or not.
+    type: boolean
+  quantity:
+    required: false
+    displayName: Quantity
+    description: |
+        The number of units included in the line item based on quantity and not a currency amount. This value is applied on a line item basis to the quantity level of the product. This application of tax differs from normal tax calculation because the tax amount/rate is applied at the quantity level of the item sold in the transaction and not to the purchase price. Required (1) if no Extended Price information is supplied.
+    type: number
+    format: double
+  quantityMeasureUnit:
+    required: false
+    displayName: QuantityMeasureUnit
+    description: The Measurement unit of Quantity.
+    type: string
+  weight:
+    required: false
+    displayName: Weight
+    description: The weight of the product.
+    type: number
+    format: double
+  weightMeasureUnit:
+    required: false
+    displayName: WeightMeasureUnit
+    description: The Measurement unit of weight.
+    type: string
+  volume:
+    required: false
+    displayName: Volume
+    description: The volume of the product.
+    type: number
+    format: double
+  volumeMeasureUnit:
+    required: false
+    displayName: VolumeMeasureUnit
+    description: The Measurement unit of volume.
+    type: string
+  supplementaryUnit:
+    required: false
+    displayName: SupplementaryUnit
+    description: |
+      A quantity used with commodity codes that require a unit of measurement other than kilograms. For example, a supplementary unit could be the number of pieces, liters, or cubic meters. This is a numeric field used for intrastat purposes on the line item level.
+    type: number
+    format: double
+  supplementaryUnitType:
+    required: false
+    displayName: SupplementaryUnitType
+    description: |
+      A unit type used with commodity codes that require an alternative to Net Mass by Kilograms. For example, a transaction may have no weight unit type but there may be pieces, pairs, or liters. This element is used for intrastat purposes and is associated with the Supplementary Unit element.
+    type: string
+    minLength: 0
+    maxLength: 20
+  statisticalValue:
+    required: false
+    displayName: StatisticalValue
+    description: |
+      Used for trades in the European Union (EU). The statisticalValue is the invoice value for imports or purchases (Arrivals) or exports or sales (Dispatches), calculated at the national borders of the EU Member States. The statisticalValue applies only if you meet the threshold amounts defined by each Member State. This field is used in Intrastat reports.
+    type: Currency
+    properties:
+      invoiceValue:
+        required: false
+        displayName: invoiceValue
+        description: 
+        type: number
+        format: double
+  freight:
+    required: false
+    displayName: Freight
+    description: |
+      This field sets the freight charge associated with the line item. Note that the preferred method for dealing with freight is to create a separate line item with an item type mapped to one of the Item Categories. However, using this method will calculate tax for the default Freight Item Category and roll it into this line item.
+    type: number
+    format: double
+  fairMarketValue:
+    required: false
+    displayName: FairMarketValue
+    description: |
+      The basis price at which the asset could be sold to the public. This is also known as the selling price or the value of the product for sale.
+    type: number
+    format: double
+  unitPrice:
+    required: false
+    displayName: UnitPrice
+    description: |
+      The Unit Price is used in conjunction with the quantity to calculate an extended price, if one is not provided.
+    type: number
+    format: double
+  extendedPrice:
+    required: false
+    displayName: ExtendedPrice
+    description: |
+      This field specifies the actual price of the line item. However, if quantity and unit price are supplied, this is not required.
+    type: number
+    format: double
+  discount:
+    required: false
+    displayName: Discount
+    description: |
+      Details on the discount. To pass Discount information, pass either DiscountPercent or DiscountAmount, but not both.
+    type: object
+    properties:
+      userDefinedDiscountCode:
+        required: false
+        displayName: A user-defined code that maps to discount category.
+        type: string
+      amount:
+        required: false
+        displayName: DiscountAmount
+        description: The discount to be applied expressed as an amount.
+        type: number
+        format: double
+      percent:
+        required: false
+        displayName: DiscountPercent
+        description: The discount to be applied expressed as a percentage.
+        type: number
+        minimum: 0
+        maximum: 1
+        format: double
+  amountBilledToDate:
+    required: false
+    displayName: AmountBilledToDate
+    description: |
+      Certain states define a maximum tax amount that can be billed to a Lessee over the life of a lease. This field contains the amount the Lessee has been billed to date. The Amount Billed to Date enables you to determine the tax amount paid to date. When the tax amount paid to date reaches the maximum tax amount, the remaining billable amount for the Lease is non-taxable.
+    type: number
+    format: double
+  companyCodeCurrencyTaxableAmount:
+    required: false
+    displayName: CompanyCodeCurrencyTaxableAmount
+    description: The total taxable amount in the default currency code for a transaction.
+    type: number
+    format: double
+  companyCodeCurrencyTaxAmount:
+    required: false
+    displayName: CompanyCodeCurrencyTaxAmount
+    description: The calculated tax amount in the default currency code for a transaction.
+    type: number
+    format: double
+  taxes:
+        required: false
+        displayName: Taxes
+        type: array
+        items:
+          type: Tax
+  totalTax:
+        required: false
+        displayName: TotalTax
+        description: Amount of tax based on variables of transaction.
+        type: number
+        format: double
+  flexibleFields:
+    required: false
+    displayName: FlexibleFields
+    description: |
+      Container for user-defined fields. Fields are provided for string values, numeric (double) values, and date values.
+    type: FlexibleFields
+  returnsFields:
+    required: false
+    displayName: ReturnsFields
+    description: |
+      Support the returns that are associated with your tax type. These fields enable you to pass in country-specific data for returns processing. The value of the name attribute for country-specific fields is prefixed by the two-character ISO country code. These fields are included on the returns report that is associated with your tax type. For example, these fields are included in VAT Returns reports. These fields are not available for U.S. transactions.
+      
+          Caution: If you use the ReturnsFields data element, you always include all Returns-related subdata elements, even if there was no change in those elements. If you do not include all Returns-related subdata elements, the ReturnsFields information will be lost.
+    type: ReturnsFields
+  assistedParameters:
+        required: false
+        displayName: AssistedParameters
+        type: AssistedParameter[]
+  lineItems:
+    required: false
+    displayName: LineItem
+    description: A sub-component (or child line item) of the transaction.
+    type: array
+    items:
+      type: LineItemQSO

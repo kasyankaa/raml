@@ -1,0 +1,58 @@
+#%RAML 1.0 DataType
+displayName: FilingCurrencyAmounts
+description: A grouping of filing currency converted taxability amounts.
+type: object
+properties:
+  currencyConversion:
+    required: true
+    displayName: CurrencyConversion
+    description: |
+      The rate (multiplier) used for converting the transaction currency amount to the filing currency amount. Pass in this value and the currency code (isoCurrencyCodeAlpha or isoCurrencyCodeNum) to have filing currency calculated if your configuration parameters are set up to do so.
+    type: Currency
+    properties: 
+        conversionRate:
+            required: false
+            type: number
+            format: double
+  filingCalculatedTax:
+    required: false
+    displayName: FilingCalculatedTax
+    description: |
+      The calculated tax amount for the line item, reported in the filing currency.
+    type: number
+    format: double
+  filingExempt:
+    required: false
+    displayName: FilingExempt
+    description: |
+      The exempt amount for the line item, reported in the filing currency.
+    type: number
+    format: double
+  filingNonTaxable:
+    required: false
+    displayName: FilingNonTaxable
+    description: |
+      The non-taxable amount for the line item, reported in the filing currency
+    type: number
+    format: double
+  filingTaxable:
+    required: false
+    displayName: FilingTaxable
+    description: |
+      The taxable amount for the line item, reported in the filing currency.
+    type: number
+    format: double
+  filingRecoverableAmount:
+    required: false
+    displayName: FilingRecoverableAmount
+    description: |
+      The recoverable amount for the VAT line item, reported in the filing currency.
+    type: number
+    format: double
+  filingUnrecoverableAmount:
+    required: false
+    displayName: FilingUnrecoverableAmount
+    description: |
+      The unrecoverable amount for the VAT line item, reported in the filing currency.
+    type: number
+    format: double

@@ -1,0 +1,20 @@
+#%RAML 1.0 ResourceType
+
+post:
+  description: Add a new <<resourcePath | !singularize>>
+  displayName: Add new <<resourcePathName | !singularize>>
+  body: 
+    application/json:
+      type: <<customRequestDataType>>
+  responses:
+    204:
+      description: The operation was successful
+    400:
+      body:
+        application/json:
+          type: !include exchange_modules/9313fbe3-8cbb-42a2-87f3-4ab5a1f54345/CommonFragments/1.0.39/dataTypes/errorResponse.raml
+    500:
+      body:
+        application/json:
+          type: !include exchange_modules/9313fbe3-8cbb-42a2-87f3-4ab5a1f54345/CommonFragments/1.0.39/dataTypes/errorResponse.raml
+

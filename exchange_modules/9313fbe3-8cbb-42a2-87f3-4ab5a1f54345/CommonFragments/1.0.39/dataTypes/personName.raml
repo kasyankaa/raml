@@ -1,0 +1,21 @@
+#%RAML 1.0 DataType
+example: !include ../examples/personNameExample.raml
+properties:
+  firstName?:
+    type: string | nil
+    description: persons first name
+  middleName?:
+    type: string | nil
+    description: persons middle name or initial
+  lastName:
+    type: string
+    description: persons last name
+  prefix?:
+    type: string | nil
+    description: persons prefix
+  suffix?:
+    type: string | nil
+    description: persons suffix
+  fullName?:
+    type: string | nil
+    description: persons fullName

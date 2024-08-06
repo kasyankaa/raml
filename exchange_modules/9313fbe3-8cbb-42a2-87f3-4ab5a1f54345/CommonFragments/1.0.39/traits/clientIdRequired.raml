@@ -1,0 +1,14 @@
+#%RAML 1.0 Trait
+description: RAML Trait supporting Client ID Enforcement policy that restricts access to a protected resource by allowing requests only from registered client applications.
+usage: 1. Add this Exchange dependency to your API specification project <br> 2. Declare an element under the _traits_ node in your main API spec file including the imported dependency main raml file <br> 3. Apply the trait to the resource that needs client id enforcement by using the declared element as an item in the _is_ node 
+headers:
+  client_id:
+    type: string
+    description: client Id provided by API Manager
+  client_secret:
+    type: string
+responses:
+  401:
+    description: Unauthorized or invalid client application credentials
+  500:
+    description: Bad response from authorization server

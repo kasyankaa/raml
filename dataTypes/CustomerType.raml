@@ -1,0 +1,80 @@
+#%RAML 1.0 DataType
+displayName: CustomerType
+description: ''
+type: object
+properties:
+  isTaxExempt:
+    required: false
+    default: false
+    displayName: IsTaxExempt
+    description: |
+      Indicates that the buyer is not required to collect taxes, and all line items associated with the purchase order are exempt from taxes.
+    type: boolean
+  exemptionReasonCode:
+    required: false
+    displayName: exemptionReasonCode
+    type: string
+    minLength: 1
+    maxLength: 4  
+  customerCode:
+    required: false
+    displayName: CustomerCode
+    description: A user-defined code that represents the customer for the transaction or line item.
+    type: object
+    properties:
+      code:
+        required: false
+        description: A user-defined code that represents the customer for the transaction or line item
+        type: string
+      isBusinessIndicator:
+        required: false
+        displayName: isBusinessIndicator
+        description: Indicates whether or not the participant is a business.
+        type: boolean
+      classCode:
+        required: false
+        displayName: classCode
+        description: |
+          A code used to represent groups of customers, vendors, dispatchers, or recipients who have similar taxability. Note: If you pass a classCode, you should not pass a TaxRegistrationNumber because the registration number does not apply to the entire class.
+        type: string
+        minLength: 1
+        maxLength: 40
+  destination:
+    required: false
+    displayName: Destination
+    description: |
+      Equivalent to the following terms: ship-to, benefit received, first used, where used, primary place of use, principle use location, location of property, or place of use. Required at either the Transaction level or the Line Item level.
+    type: Location
+  administrativeDestination:
+    required: false
+    displayName: AdministrativeDestination
+    description: |
+      Equivalent to the benefit received location in some service transactions. Required for some service transactions at either the Transaction level or the Line Item level..
+    type: Location
+  exemptionCertificate:
+    required: false
+    displayName: ExemptionCertificate
+    description: Details on the exemption certificate.
+    type: object
+    properties:
+      details:
+        required: false
+        displayName: Details
+        description: Details on the exemption certificate
+        type: string
+      exemptionCertificateNumber:
+        required: false
+        displayName: exemptionCertificateNumber
+        description: |
+          The identifier of the exemption certificate, which is recorded in the Tax Journal.  Note: If you pass an exemption certificate number in the XML message, the isTaxExempt attribute of the participant is set to true and the transaction is treated as exempt from tax.
+        type: string
+        minLength: 1
+        maxLength: 30
+  taxRegistration:
+    required: false
+    displayName: TaxRegistration
+    description: |
+      The Registration information for Value Added Tax. The transaction is considered to be a VAT Group transaction if the Buyer and Seller have the same registration number, the Place of Supply(POS) jurisdiction is an EU member country, and the InvoiceTaxCode is 2 (Intra-EU Notice).
+    type: array
+    items:
+      type: TaxRegistration

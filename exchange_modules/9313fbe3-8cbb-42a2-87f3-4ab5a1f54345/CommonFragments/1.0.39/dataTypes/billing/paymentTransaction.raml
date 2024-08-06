@@ -1,0 +1,26 @@
+#%RAML 1.0 DataType
+properties:
+  referenceId:
+    type: integer
+    description: payment reference number
+  effectiveDate:
+    type: date-only
+    description: trx effective date 
+  accountNumberLast4Digits:
+    type: string
+    description: 
+  amount:
+    type: number
+    description: payment amount
+  paymentTypeCode?:
+    type: string | nil
+    description: 
+  paymentType?: 
+    type: string | nil
+    description: payment type description
+  isCancellable?:
+    type: boolean | nil
+    description: 
+  isCancelled?:
+    type: boolean | nil
+    description: 

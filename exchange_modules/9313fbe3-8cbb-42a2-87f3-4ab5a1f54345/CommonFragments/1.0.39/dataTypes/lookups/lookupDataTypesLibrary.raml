@@ -1,0 +1,83 @@
+#%RAML 1.0 Library
+
+types:
+  pic:
+    type: string
+    maxLength: 30
+    description: pic (pin number)
+
+  partner:
+    type: string
+    description: partner
+
+  lookupResponseAddress:
+    type: object
+    description: Primitive type used to describe an address with the minimum number of elements (no county, latitude, etc.)
+    properties:
+      addressLine1:
+        type: string 
+        maxLength: 60
+        description: Line 1 of the address
+      addressLine2:
+        type: string 
+        maxLength: 60
+        required: false
+      city:
+        type: string 
+        maxLength: 30
+        required: false
+        description: City where this address is located.
+      state:
+        type: string 
+        maxLength: 3
+        required: false
+        description: State in which this address is located.
+      postalCode:
+        type: string 
+        maxLength: 10
+        required: false
+        description: Postal code for this address.  
+
+  lookupRequestAddress:
+    type: object
+    description: set of address fields to lookup sites in the MMB DB.  It is an incomplete list of fields, addressLine2 being conspicously absent
+
+    properties:
+      addressLine1:
+        type: string | nil
+        description: Line 1 of the address.
+        required: false
+      city:
+        type: string | nil
+        description: City where this address is located.
+        required: false
+      state:
+        type: string | nil
+        description: State in which this address is located.
+        required: false
+      postalCode:
+        type: string | nil
+        description: Postal code for this address.
+        required: false
+
+  lookupSitesRequest:
+    type: object
+    description: json input to look up sites in the MMB DB
+
+    properties:
+      siteId:
+        description: site number
+        type: integer
+        required: false
+      firstName: 
+        description: customer first name
+        type: string
+        required: false
+      lastName:
+        description: customer last name
+        type: string
+        required: false
+      address:
+        description: set of address fields to lookup sites in the MMB DB.  It is an incomplete list of fields, address2 being conspicously absent
+        type: lookupRequestAddress
+        required: false

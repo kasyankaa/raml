@@ -1,0 +1,120 @@
+#%RAML 1.0 NamedExample
+request-example1:
+  {
+  "transactionType": "SALE",
+  "transactionId": "820487468",
+  "documentNumber": "820487468",
+  "documentDate": "2022-08-02",
+  "postingDate": "2022-08-02",
+  "applicationData": {
+    "sender": "MMBO-956"
+  },
+  "seller": {
+    "division": "433",
+    "company": "001",
+    "department": "823",
+    "physicalOrigin": {
+      "mainDivision": "CO",
+      "city": "AURORA",
+      "subDivision": "ADAMS",
+      "postalCode": "800110813",
+      "streetAddress1": "452 SABLE BLVD"
+    },
+    "administrativeOrigin": {
+      "mainDivision": "CO",
+      "city": "AURORA",
+      "subDivision": "ADAMS",
+      "postalCode": "800110813",
+      "streetAddress1": "452 SABLE BLVD"
+    }
+  },
+  "customer": {
+    "customerCode": {
+      "classCode": "400367516-46400235"
+    },
+    "destination": {
+      "streetAddress1": "46400235 BLUFF PL",
+      "postalCode": "820094511",
+      "mainDivision": "WY",
+      "subDivision": "LARAMIE",
+      "city": "CHEYENNE"
+    }
+  },
+  "lineItems": [
+    {
+      "lineItemNumber": 1,
+      "quantity": 1,
+      "extendedPrice": 10.0,
+      "product": {
+        "productClass": "MON",
+        "productCode": "MON"
+      },
+      "flexibleFields": {
+        "flexibleCodeField": [
+          {
+            "value": "Recur",
+            "fieldId": 2
+          },
+          {
+            "value": "Y",
+            "fieldId": 4
+          },
+          {
+            "value": "N",
+            "fieldId": 6
+          }
+        ]
+      }
+    },
+    {
+      "lineItemNumber": 2,
+      "quantity": 1,
+      "extendedPrice": 10.0,
+      "product": {
+        "productClass": "MONFA",
+        "productCode": "MONFA"
+      },
+      "flexibleFields": {
+        "flexibleCodeField": [
+          {
+            "value": "Recur",
+            "fieldId": 2
+          },
+          {
+            "value": "Y",
+            "fieldId": 4
+          },
+          {
+            "value": "N",
+            "fieldId": 6
+          }
+        ]
+      }
+    },
+    {
+      "lineItemNumber": 3,
+      "quantity": 1,
+      "extendedPrice": 20.0,
+      "product": {
+        "productClass": "QSP",
+        "productCode": "QSP"
+      },
+      "flexibleFields": {
+        "flexibleCodeField": [
+          {
+            "value": "Recur",
+            "fieldId": 2
+          },
+          {
+            "value": "Y",
+            "fieldId": 4
+          },
+          {
+            "value": "N",
+            "fieldId": 6
+          }
+        ]
+      }
+    }
+  ]
+}

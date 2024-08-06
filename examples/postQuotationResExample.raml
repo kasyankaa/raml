@@ -1,0 +1,107 @@
+#%RAML 1.0 NamedExample
+response-example1:
+  {
+    "taxTransactionResponseType": "QuotationResponse",
+    "documentNumber": "250000021",
+    "documentDate": "2017-09-15",
+    "transactionID": "250000021",
+    "locationCode": "Jacksonville",
+    "transactionType": "SALE",
+    "postingDate": "2017-09-15",
+    "roundAtLineLevel": false,
+    "subtotal": "1.04",
+    "total": "1.11",
+    "totalTax": "0.07",
+    "taxPointDate": "2017-09-05",
+    "customer": {
+      "isTaxExempt": true,
+      "destination": {
+        "streetAddress1": "9512 Sunbeam Center Dr",
+        "city": "West Palm Beach",
+        "mainDivision": "FL",
+        "postalCode": "32257",
+        "country": "USA"
+      }
+    },
+    "seller": {
+      "nexusIndicator": true,
+      "physicalOrigin": {
+        "streetAddress1": "9512 Sunbeam Center Dr",
+        "city": "West Palm Beach",
+        "mainDivision": "FL",
+        "postalCode": "32257",
+        "country": "USA"
+      },
+      "administrativeOrigin": {
+        "streetAddress1": "9512 Sunbeam Center Dr",
+        "city": "West Palm Beach",
+        "mainDivision": "FL",
+        "postalCode": "32257",
+        "country": "USA"
+      }
+    },
+    "lineItem": [
+      {
+        "lineItemNumber": "1",
+        "product": "MON",
+        "quantity": "1",
+        "extendedPrice": "1.04",
+        "taxes": [
+          {
+            "maxTaxIndicator": false,
+            "notRegisteredIndicator": true,
+            "filingCategoryCode": 8899,
+            "isService": true,
+            "jurisdiction": {
+              "jurisdictionName": "FLORIDA",
+              "jurisdictionLevel": "STATE",
+              "jurisdictionId": "5286"
+            },
+            "calculatedTax": "0.06",
+            "effectiveRate": "0.06",
+            "taxApportionmentRate": "0.06",
+            "basisReductionPercentage": "0.04",
+            "taxable": "1.04",
+            "impostion": {
+              "userDefined": true,
+              "impositionID": 23
+            },
+            "accumulateAsImposition": {
+              "userDefined": true,
+              "impositionId": 23
+            },
+            "accumulateAsLineType": {
+              "userDefined": true
+            }
+          }
+        ],
+        "totalTax": "0.07",
+        "flexibleFields": {
+          "flexibleCodeField": [
+            {
+              "fieldId": "1",
+              "value": "1a"
+            }
+          ],
+          "flexibleDateField": [
+            {
+              "fieldId": "1",
+              "value": "1a"
+            }
+          ]
+        },
+        "taxDate": "2017-09-05",
+        "isMultiComponent": true,
+        "locationCode": "Jacksonville",
+        "deliveryTerm": "EXW",
+        "postingDate": "2017-09-05",
+        "countryOfOriginISOCode": "032",
+        "modeOfTransport": "0099883",
+        "natureOfTransaction": "00099333",
+        "netMassKilograms": 22,
+        "taxIncludedIndicator": true,
+        "simplificationCode": "CONSIGNMENT",
+        "customerOwned": true
+      }
+    ]
+  }

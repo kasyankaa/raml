@@ -1,0 +1,74 @@
+#%RAML 1.0
+title: vertex-sys-api
+description: 
+version: v1
+mediaType: 
+  - application/json
+protocols:
+  - HTTPS
+  - HTTP
+
+uses:
+  traitsLibrary: exchange_modules/9313fbe3-8cbb-42a2-87f3-4ab5a1f54345/CommonFragments/1.0.39/traits/traitsLibrary.raml
+  securitySchemeLibrary: exchange_modules/9313fbe3-8cbb-42a2-87f3-4ab5a1f54345/CommonFragments/1.0.39/securitySchemes/securitySchemesLibrary.raml
+
+types:
+  Currency: !include dataTypes/CurrencyType.raml
+  Location: !include dataTypes/LocationType.raml
+  PhysicalLocation: !include dataTypes/PhysicalLocationType.raml
+  CurrencyConversionFactor: !include dataTypes/CurrencyConversionFactorType.raml
+  ImpositionToProcess: !include dataTypes/ImpositionToProcessType.raml
+  JurisdictionOverride: !include dataTypes/JurisdictionOverrideType.raml
+  LineItemQSI: !include dataTypes/LineItemQSIType.raml
+  LineItemQSO: !include dataTypes/LineItemQSOType.raml
+  TaxOverride: !include dataTypes/TaxOverrideType.raml
+  Customer: !include dataTypes/CustomerType.raml
+  Seller: !include dataTypes/SellerType.raml
+  NexusOverride: !include dataTypes/NexusOverrideType.raml
+  FlexibleFields: !include dataTypes/FlexibleFieldsType.raml
+  ReturnsFields: !include dataTypes/ReturnsFieldsType.raml
+  TaxRegistration: !include dataTypes/TaxRegistrationType.raml
+  Tax: !include dataTypes/TaxType.raml
+  Rule: !include dataTypes/RuleType.raml
+  FilingCurrencyAmounts: !include dataTypes/FilingCurrencyAmountsType.raml
+  AssistedParameter: !include dataTypes/AssistedParameterType.raml
+  postQuotationRequest: !include dataTypes/postQuotationRequest.raml
+  postQuotationResponse:  !include dataTypes/postQuotationResponse.raml
+  postInvoiceRequest: !include dataTypes/postQuotationRequest.raml
+  postInvoiceResponse:  !include dataTypes/postQuotationResponse.raml
+  standardErrorResponse: !include exchange_modules/9313fbe3-8cbb-42a2-87f3-4ab5a1f54345/CommonFragments/1.0.39/dataTypes/errorResponse.raml
+
+resourceTypes:
+  getHealthapp: !include resourceTypes/get204NoReturnPayload.raml
+  postTaxCalculation: !include resourceTypes/post200Success.raml
+
+/healthapp:
+  description: Application health check ping
+  is:
+    - traitsLibrary.clientIdRequired
+    - traitsLibrary.standardSystemAPIHeaders
+  type:
+    getHealthapp     
+/taxCalculation:
+    description: This API is for Calculate Quotation Taxes from Vertex. Input is Quotation Request Type. This API will call Vertex Quotation Taxes API. Calculate Estimate taxes on a proposed sale, rental, or lease of goods or services by the Seller for Quotes.
+    is:
+      - traitsLibrary.clientIdRequired
+      - traitsLibrary.standardSystemAPIHeaders
+    type:
+      postTaxCalculation:
+        customRequestDataType: postQuotationRequest
+        customRequestExample:
+        customResponseDataType: postQuotationResponse
+        customResponseExample:
+      
+    /invoice:
+      description: This is API is for Calculate Invoice Taxes from Vertex. Input is Invoice Request Type. This API will call Vertex Invoice Taxes API.
+      is:
+        - traitsLibrary.clientIdRequired
+        - traitsLibrary.standardSystemAPIHeaders
+      type:
+        postTaxCalculation:
+          customRequestDataType: postInvoiceRequest
+          customRequestExample: !include examples/postInvoiceReqExample.raml
+          customResponseDataType: postInvoiceResponse
+          customResponseExample: !include examples/postInvoiceResExample.raml

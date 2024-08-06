@@ -1,0 +1,40 @@
+#%RAML 1.0 DataType
+displayName: NexusOverride
+description: Information for the nexus override.
+type: object
+properties:
+  locationRole:
+    required: true
+    displayName: locationRole
+    description: The location for the nexus override.
+    type: string
+    enum:
+    - ADMINISTRATIVE_DESTINATION
+    - ADMINISTRATIVE_ORIGIN
+    - DESTINATION
+    - PHYSICAL_ORIGIN
+  country:
+    required: false
+    displayName: country
+    description: Indicates whether or not the override applies at this jurisdiction level.
+    type: boolean
+  mainDivision:
+    required: false
+    displayName: mainDivision
+    description: Indicates whether or not the override applies at this jurisdiction level.
+    type: boolean
+  subDivision:
+    required: false
+    displayName: subDivision
+    description: Indicates whether or not the override applies at this jurisdiction level.
+    type: boolean
+  city:
+    required: false
+    displayName: city
+    description: Indicates whether or not the override applies at this jurisdiction level.
+    type: boolean
+  district:
+    required: false
+    displayName: district
+    description: Indicates whether or not the override applies at this jurisdiction level.
+    type: boolean

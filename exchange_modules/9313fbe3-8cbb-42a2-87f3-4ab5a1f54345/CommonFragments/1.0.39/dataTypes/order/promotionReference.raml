@@ -1,0 +1,14 @@
+#%RAML 1.0 DataType
+type: object
+properties:
+  promotionReference?:
+    type: object
+    properties:
+      isUnique?:
+        type: boolean | nil
+      operation?:
+        type: string | nil
+      referenceId?:
+        type: string | nil
+      referenceSequence?:
+        type: number

@@ -1,0 +1,27 @@
+#%RAML 1.0 DataType
+properties:
+  remainingDueAmount: 
+    type: number
+    default: 0
+    example:  880.72
+  installmentAmount:
+    type: number
+    default: 0
+    example: 110.09
+  remainingInstallments:
+    type: integer
+    default: 0
+  finalPaymentDate: 
+    type: date-only | nil
+    example: 2021-11-02
+  noteNo:
+    type: integer
+    default: 0
+    example: 1139737
+  lastPaymentDate:
+    type: date-only | nil
+    example: 2020-11-02
+  lastPaymentAmount:
+    type: number
+    default: 0
+    example: 212.12

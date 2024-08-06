@@ -1,0 +1,257 @@
+#%RAML 1.0 DataType
+
+uses:
+  lookupDataTypesLibrary: lookupDataTypesLibrary.raml
+    
+
+type: object
+description: One site as it is returned by the lookup site
+
+properties:
+  correlationId:
+    description: unique initiating action identifier
+    type: string
+    required: true
+  tracingId:
+    description: identifier provided by initiating client
+    type: string
+    required: false
+  siteId:
+    type: string
+    description: site number
+  siteType:
+    type: string
+    description: site type
+    maxLength: 30
+  siteTypeId:
+    type: string
+    description: site type ID
+    maxLength: 6
+  siteName:
+    type: string
+    description: site name
+    maxLength: 60
+  address: 
+    type: lookupDataTypesLibrary.lookupResponseAddress
+    description: site address
+  pics:
+    description: array of pics
+    type: lookupDataTypesLibrary.pic[]
+    required: false
+  partners:
+    description: array of partners
+    type: lookupDataTypesLibrary.partner[]
+    required: false
+  hoa:
+    description: HOA 
+    type: boolean
+    required: false
+  bht:
+    description: BHT 
+    type: boolean
+    required: false
+  chs:
+    description: CHS
+    type: boolean
+    required: false
+  mtmSiteId:
+    description: site number in previous company
+    type: string
+  billingCustomerNos:
+    description: billing customer numbers
+    type: integer[]
+    required: false
+  billingSystems:
+    description: Billing Systems
+    type: string[]
+    required: false
+  systemId:
+    type: integer
+    required: false
+    description: system number
+  csNo:
+    type: string
+    maxLength: 20
+    required: false
+    description: CS_NO 
+  pulseServiceId:
+    type: string
+    maxLength: 7
+    required: false
+    description: pulse service
+  systemTypeId:
+    type: string
+    maxLength: 6
+    required: false
+    description: system type
+  systemType:
+    type: string
+    maxLength: 30
+    description: system type description
+  systemStartDate:
+    type: date-only
+    required: false
+    description: system start date
+  systemDescription:
+    type: string
+    maxLength: 30
+    required: false
+    description: system description
+  zoneCount:
+    type: integer
+    required: false
+    description: zone count
+  hasBurglarAlarm:
+    type: boolean
+    required: false
+    description: does the site has burglar alarm?  
+  hasSmokeAlarm:
+    type: boolean
+    required: false
+    description: does the site has smoke alarm?
+  hasCOAlarm:
+    type: boolean
+    required: false
+    description: does the site has CO alarm?
+  panelType:
+    type: string
+    maxLength: 30
+    required: false
+    description: panel type
+  panel:
+    type: string
+    maxLength: 30
+    required: false
+    description: panel description 
+  servicePlanId:
+    type: string
+    maxLength: 6
+    required: false
+    description: service plan
+  centralStationAccountType:
+    type: string
+    maxLength: 10
+    required: false
+    description: CS account type
+  hasCellBackup:
+    type: boolean
+    required: false
+    description: has cell backup?
+  serviceActive:
+    type: string
+    maxLength: 3
+    required: false
+    description: service active
+  installCompanyId:
+    type: integer
+    required: false
+    description: install company id
+  resaleEligible:
+    type: string
+    maxLength: 20
+    required: false
+    description: resale eligible
+  cellTech:
+    type: string
+    required: false
+    description: 
+  cellCOnOff:
+    type: string
+    required: false
+    description: 
+  cellDeactivateDate:
+    type: date-only
+    required: false
+    description: 
+  contractId:
+    type: integer
+    required: false
+    description: contract number
+  siteStartDate:
+    type: date-only
+    required: false
+    description: site start date
+  discountRequestDate:
+    type: date-only
+    required: false
+    description: discount request date
+  chargeBackStatus:
+    type: boolean
+    required: false
+    description: charge back status
+  dealerName:
+    type: string
+    maxLength: 30
+    required: false
+    description: dealer name
+  dealerPhone:
+    type: string
+    required: false
+    description: dealer phone
+  fundingDate:
+    type: date-only
+    required: false
+    description: funding date
+  installingDealerId:
+    type: integer
+    required: false
+    description: install dealer number
+  dealType:
+    type: string
+    required: false
+    description: deal type
+  cancelDealerShell:
+    type: boolean
+    required: false
+    description: cancel dealer shell?
+  isReinstate:
+    type: boolean
+    required: false
+    description: resinstae?
+  reinstateReason:
+    type: string
+    required:  false
+    description: reinstate reason
+  isRelocation:
+    type: boolean
+    required: false
+    description: relocation?
+  relocationReason:
+    type: string
+    required: false
+    description: reason for relocation
+  isAddOn:
+    type: boolean
+    required: false
+    description: is add on?
+  addOnReason:
+    type: string
+    required: false
+    description: add on reason
+  isConversion:
+    type: boolean
+    required: false
+    description: is it a conversion?
+  conversionReason:
+    type: string
+    required: false
+    description: conversation reason
+  isMultisite:
+    type: boolean
+    required: false
+    description: multisite?
+  multisiteReason:
+    type: string
+    required: false
+    description: multisite reason
+  contractTerm:
+    type: string
+    maxLength: 1
+    required: false
+    description: contract term
+  dealerNewCustomers:
+    type: string[]
+    required: false
+    description: dealer new customers
+
+

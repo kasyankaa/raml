@@ -1,0 +1,79 @@
+#%RAML 1.0 DataType
+displayName: ReturnsFields
+description: |
+    Support the returns that are associated with your tax type. The value of the name attribute for country-specific fields is prefixed by the two-character ISO country code. These fields are included on the returns report that is associated with your tax type. For example, these fields are included in VAT Returns reports.
+  
+        Caution: If you use the ReturnsFields data element, you always include all Returns-related subdata elements, even if there was no change in those elements. If you do not include all Returns-related subdata elements, the ReturnsFields information will be lost when you perform synchronization activities.
+type: object
+properties:
+  returnsCodeField:
+    required: false
+    displayName: ReturnsCodeField
+    description: |
+      A text value for your returns. 
+    type: array
+    items:
+      properties:
+        value:
+          required: true
+          displayName: Value
+          type: string
+        name:
+          required: true
+          displayName: Name
+          description: An identifier for a Flexible Numeric Field.
+          type: string
+  returnsNumericField:
+    required: false
+    displayName: ReturnsNumericField
+    description: |
+      A numeric value for your returns.
+    type: array
+    items:
+      properties:
+        value:
+          required: true
+          displayName: Value
+          type: number
+          format: double
+        name:
+          required: true
+          displayName: Name
+          description: An identifier for a Flexible Numeric Field.
+          type: string
+  returnsDateField:
+    required: false
+    displayName: ReturnsDateField
+    description: |
+      A date value for your returns.
+    items:
+      properties:
+        value:
+          required: true
+          displayName: Value
+          type: date-only
+          example:
+            2021-05-17
+        name:
+          required: true
+          displayName: Name
+          description: An identifier for a Flexible Numeric Field.
+          type: string
+  returnsIndicatorField:
+    required: false
+    displayName: ReturnsIndicatorField
+    description: |
+      A Boolean value for your returns.
+    type: array
+    items:
+      properties:
+        value:
+          required: true
+          displayName: Value
+          type: boolean
+        name:
+          required: true
+          displayName: Name
+          description: An identifier for a Flexible Numeric Field.
+          type: string
+  

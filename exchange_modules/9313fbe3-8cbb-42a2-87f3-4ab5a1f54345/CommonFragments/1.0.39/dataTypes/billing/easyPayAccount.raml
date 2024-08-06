@@ -1,0 +1,62 @@
+#%RAML 1.0 DataType
+properties:
+  statusCode?: 
+    type: string | nil
+    example: A
+  declinedTransactionFound?:
+    type: boolean | nil
+    example: false
+  isUnenrolled?:
+    type: boolean | nil
+  enrollmentDate?:
+    type: date-only
+    example: 2020-11-17
+  recurringPaymentTypeCode:
+    type: string
+    example: ACH
+  creditCardTypeCode?:
+    type: string | nil
+    example: A
+  creditCardType?:
+    type: string | nil
+    example: Mastercard  
+  creditCardNumber?: 
+    type: string | nil
+    example: "3036"
+  creditCardExpirationDate?:
+    type: date-only | nil
+    example: 2024-11-02
+  creditCardProfileId?:
+    type: string | nil
+    example: "589519618"
+  bankAccountName?:
+    type: string | nil
+    example: "Bank, Account"  
+  bankAccountNumber?:
+    type: string | nil
+    example: "*******2365"
+  bankAccountType?:
+    type: string | nil
+  bankRoutingNumber?:
+    type: string | nil
+    example: "121042882"  
+  invoiceMasterId?:
+    type: number | nil
+    example: 10150920
+  prepayId?: 
+    type: number | nil
+    example: 36125332
+  withdrawDay?:
+    type: number | nil
+  billCycleId?:
+    type: string | nil
+    example: "12"
+  dayOfMonth?:
+    type: number | nil
+  draftDayChangeAllowed?:
+    type: boolean | nil
+  draftDayUpdateMessage?:
+    type: string | nil
+
+
+

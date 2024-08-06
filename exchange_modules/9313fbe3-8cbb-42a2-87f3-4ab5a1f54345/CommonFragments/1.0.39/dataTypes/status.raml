@@ -1,0 +1,26 @@
+#%RAML 1.0 DataType
+properties:
+  code:
+    type: string
+  messages:
+    type: array
+    items:
+      properties:
+        type:
+          type: string
+          enum: ["Diagnostic","Warning","Error"]
+          example: "Error"            
+        severity?:
+          type: string
+          description: the higher the number the higher the severity 
+          example: "1"
+        reasonCode?:
+          type: string
+          description: application return code
+          example: "ADT-500"
+        message:
+          type: string
+          description: message description
+        context?:  
+          type: string
+          description: additional context as to where the message was generated

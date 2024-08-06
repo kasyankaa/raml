@@ -1,0 +1,95 @@
+#%RAML 1.0 DataType
+displayName: SellerType
+description: ''
+type: object
+properties:
+  nexusIndicator:
+    required: false
+    displayName: nexusIndicator
+    description: |
+      Indicates whether the Seller is not required to collect taxes. In this case, all associated child line items are exempt from taxes.
+    type: boolean
+  nexusReasonCode:
+    required: false
+    displayName: nexusReasonCode
+    description: |
+      A code that indicates the reason that the Seller is exempt from tax.
+    type: string
+    minLength: 1
+    maxLength: 4
+  company:
+    required: false
+    displayName: Company
+    description: |
+      Identifies the top-level legal entity for which tax exceptions may exist.
+    type: string
+    minLength: 0
+    maxLength: 40
+  division:
+    required: false
+    displayName: Division
+    description: |
+      Identifies the mid-level legal entity for which tax exceptions may exist. 
+    type: string
+    minLength: 0
+    maxLength: 40
+  department:
+    required: false
+    displayName: Department
+    description: |
+      Identifies the low-level legal entity for which specific tax requirements and exceptions may exist.
+    type: string
+    minLength: 0
+    maxLength: 40
+  utilityProvider:
+    required: false
+    displayName: UtilityProvider
+    description: Identifies a taxpayer is a regulated or unregulated utility provicder.
+    type: string
+    enum:
+    - REGULATED_TAXPAYER
+    - UNREGULATED_TAXPAYER
+  dispatcher:
+    required: false
+    displayName: Dispatcher
+    description: |
+      Dispatcher information. The dispatcher is described by the child elements and attributes.
+    type: object
+    properties:
+      dispatcherCode:
+            required: true
+            displayName: DispatcherCode
+            description: A user-defined code that represents the dispatcher for the transaction or line item.
+            type: string
+      classCode:
+            required: true
+            displayName: classCode
+            description: A code used to represent groups of customers, vendors, dispatchers, or recipients who have similar taxability.
+            type: string
+      taxRegistration:
+            required: false
+            displayName: TaxRegistration
+            description: The Registration information for Value Added Tax.
+            type: array
+            items:
+             type: TaxRegistration
+  physicalOrigin:
+    required: false
+    displayName: PhysicalOrigin
+    description: |
+      Equivalent to the following terms: ship-from or first removed. Required (1) for VAT triangulation at either Transaction level or the Line Item level. If Physical Origin information is provided at both levels, the Line Item level information supersedes the Transaction level information.
+    type: Location
+  administrativeOrigin:
+    required: false
+    displayName: AdministrativeOrigin
+    description: |
+      Equivalent to the following terms: order taken, order acceptance, place of principle negotiation, or place of business.
+    type: Location
+  taxRegistration:
+    required: false
+    displayName: TaxRegistration
+    description: |
+      The Registration information for Value Added Tax. The transaction is considered to be a VAT Group transaction if the Buyer and Seller have the same registration number, the Place of Supply (POS) jurisdiction is an EU member country, and the InvoiceTaxCode is 2 (Intra-EU Notice).
+    type: array
+    items:
+      type: TaxRegistration

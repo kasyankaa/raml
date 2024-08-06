@@ -1,0 +1,66 @@
+#%RAML 1.0 DataType
+displayName: FlexibleFields
+description: |
+      Container for user-defined fields. Fields are provided for string values, numeric (double) values, and date values.
+type: object
+properties:
+      flexibleCodeField:
+        required: false
+        displayName: FlexibleCodeFields
+        description: User-defined field for string values.
+        type: array
+        items:
+          properties:
+            value:
+               required: true
+               displayName: Value
+               type: string
+               maxLength: 250
+            fieldId:
+              required: true
+              displayName: fieldId
+              description: An identifier for a Flexible Code Field.
+              type: integer
+              minimum: 1
+              maximum: 25
+              format: int32
+      flexibleNumericField:
+        required: false
+        displayName: FlexibleNumericFields
+        description: User-defined field for double values.
+        type: array
+        items:
+          properties:
+            value:
+               required: true
+               displayName: Value
+               type: number
+               format: double
+            fieldId:
+              required: true
+              displayName: fieldId
+              description: An identifier for a Flexible Numeric Field.
+              type: integer
+              minimum: 1
+              maximum: 10
+              format: int32
+      flexibleDateField:
+        required: false
+        displayName: FlexibleDateFields
+        description: User-defined field for date values.
+        type: array
+        items:
+          properties:
+            value:
+               required: true
+               displayName: Value
+               type: date-only
+               example: 2021-05-17
+            fieldId:
+              required: true
+              displayName: fieldId
+              description: An identifier for a Flexible Date Field.
+              type: integer
+              minimum: 1
+              maximum: 5
+              format: int32

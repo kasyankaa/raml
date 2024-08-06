@@ -1,0 +1,109 @@
+#%RAML 1.0 DataType
+displayName: JurisdictionOverride
+description: Details on the jurisdiction overrides.
+type: object
+properties:
+  jurisdictionLevel:
+    required: true
+    displayName: jurisdictionLevel
+    description: |
+      The jurisdiction level of the overrides.
+    type: string
+    enum:
+    - APO
+    - BOROUGH
+    - CITY
+    - COUNTRY
+    - COUNTY
+    - DISTRICT
+    - FPO
+    - LOCAL_IMPROVEMENT_DISTRICT
+    - PARISH
+    - PROVINCE
+    - SPECIAL_PURPOSE_DISTRICT
+    - STATE
+    - TERRITORY
+    - TOWNSHIP
+    - TRADE_BLOCK
+    - TRANSIT_DISTRICT
+  deductionOverride:
+    required: false
+    displayName: DeductionOverride
+    description: Details on the deduction override.
+    type: object
+    properties:
+      exemptOverride:
+        required: false
+        displayName: ExemptOverride
+        description: |
+          The amount used to override taxability to partial or full exempt status.
+        type: object
+        properties:
+          amount:
+            required: false
+            displayName: amount
+            description: |
+              The amount used to override taxability to partial or full exempt status.
+            type: number
+          overrideExemptReasonCode:
+            required: false
+            displayName: overrideExemptReasonCode
+            description: |
+             A code that indicates the reason for the override.
+            type: string
+            minLength: 1
+            maxLength: 4
+      nonTaxableOverride:
+        required: false
+        displayName: NonTaxableOverride
+        description: |
+          The amount used to override taxability to partial or full non-taxable status.
+        properties:
+          amount:
+            required: false
+            displayName: amount
+            description: |
+              The amount used to override taxability to partial or full exempt status.
+            type: number
+          overrideNonTaxableReasonCode:
+            required: false
+            displayName: OverrideNonTaxableReasonCode
+            description: |
+             A code that indicates the reason for the override.
+            type: string
+            minLength: 1
+            maxLength: 4
+  rateOverride:
+    required: false
+    displayName: RateOverride
+    description: |
+      The rate override percentage for the specified jurisdiction.
+    type: number
+    format: double
+  impositionType:
+    required: false
+    displayName: ImpositionType
+    description: The type description that is assigned to the imposition.
+    properties:
+      typeDescription:
+        required: false
+        displayName: typeDescription
+        description: The type description that is assigned to the imposition.
+        type: string
+      userDefined:
+        required: false
+        displayName: userDefined
+        description: |
+          An identifier for user-defined imposition type. This identifier is useful for troubleshooting.
+        type: boolean
+      impositionTypeId:
+        required: false
+        displayName: impositionTypeId
+        description: An identifier for the impositionType.
+        type: integer
+        format: int32
+      withholdingType:
+        required: false
+        displayName: withholdingType
+        description: withholding type of the impositionType.
+        type: string

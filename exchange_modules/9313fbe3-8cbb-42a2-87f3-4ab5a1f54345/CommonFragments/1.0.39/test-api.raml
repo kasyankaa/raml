@@ -1,0 +1,56 @@
+#%RAML 1.0
+version: v1
+title: TestAPI
+uses:
+  traits: traits/traitsLibrary.raml
+  dataTypes: dataTypes/dataTypesLibrary.raml
+
+types:
+  address: dataTypes.address
+  status: dataTypes.status
+
+/employees:
+  is:
+    [traits.securedWithBasic]
+  post:
+    body:
+      application/json:
+        type: object
+        example:
+    responses:
+      200:
+        body:
+          application/json:
+            type: object
+            example:  |
+            {"employee": {"firstName": "Pete","lastName": "Smith"}}
+      500:
+        body:
+          application/json:
+            type: object
+            example:  |
+              {"employee": {"firstName": "Pete","lastName": "Smith"}}
+              
+  /{id}:
+    is: 
+      [traits.historicSearch,traits.clientIdRequired]
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+              type: string
+              example:
+      
+              
+
+
+          
+
+    
+
+     
+
+
+
+      

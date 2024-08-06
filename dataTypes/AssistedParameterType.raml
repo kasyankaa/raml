@@ -1,0 +1,35 @@
+#%RAML 1.0 DataType
+displayName: AssistedParametersType
+description: |
+  List of all parameters on the tax or line item that were assisted by one or more assisting services.
+type: object
+properties:
+  value:
+    required: true
+    displayName: Value
+    description:  Value for assisted parameter. Value may be date (yyyy-mm-dd), numeric (default format for long or double), boolean (true or false), or simple string.
+    type: string
+  paramName:
+    required: true
+    displayName: paramName
+    description: Unique name by which the modified parameter can be identified.
+    type: string
+  phase:
+    required: true
+    displayName: phase
+    description: Indicates whether the parameter was assisted pre-calculation or post-calculation.
+    type: string
+    enum:
+    - PRE
+    - POST
+  ruleName:
+    required: false
+    displayName: ruleName
+    description: The name of the Tax Assist Rule that the Calculation Engine applied during transction processing. To return the Tax Assist Rule name, the returnAssistedParametersIndicator must be enabled.
+    type: string
+  originalValue:
+    required: false
+    displayName: originalValue
+    description: The original value of the assisted parameter before the Calculation Engine applied a Tax Assist Rule.
+    type: string
+        

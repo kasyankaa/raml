@@ -1,0 +1,114 @@
+#%RAML 1.0 DataType
+displayName: LocationType
+description: ''
+type: object
+properties:
+  taxAreaId:
+    required: false
+    displayName: TaxAreaId
+    description: Tax Area ID
+    type: integer
+    minimum: 0
+    maximum: 999999999
+    format: int32
+  latitude:
+    required: false
+    displayName: Latitude
+    description: A number representing the geographical latitude coordinate of the location.
+    type: string
+    minLength: 1
+    maxLength: 20
+  longitude:
+    required: false
+    displayName: Longitude
+    description: A number representing the geographical longitude coordinate of the location.
+    type: string
+    minLength: 1
+    maxLength: 20
+  locationCustomsStatus:
+    required: false
+    displayName: LocationCustomsStatus
+    description: The customs status at this location. 
+    type: string
+    enum:
+    - FREE_CIRCULATION
+    - BONDED_WAREHOUSE
+    - FREE_TRADE_ZONE
+    - TEMPORARY_IMPORT
+    - INWARD_PROCESSING_RELIEF
+    - OUTWARD_PROCESSING_RELIEF
+  locationCode:
+    required: false
+    displayName: LocationCode
+    description: |
+      A value that can be used for tax return filing in jurisdictions that require taxes to be filed for individual retail locations.
+    type: string
+    minLength: 0
+    maxLength: 20
+  externalJurisdictionCode:
+    required: false
+    displayName: ExternalJurisdictionCode
+    description: The jurisdiction code assigned by the relevant governmental authority.
+    type: string
+    minLength: 0
+    maxLength: 20
+  streetAddress1:
+    required: false
+    displayName: StreetAddress1
+    description: The first line of the street address.
+    type: string
+    minLength: 1
+    maxLength: 100
+  streetAddress2:
+    required: false
+    displayName: StreetAddress2
+    description: The second address line for a Contact.
+    type: string
+    minLength: 1
+    maxLength: 100
+  city:
+    required: false
+    displayName: City
+    description: The proper name of the city used to determine the Tax Area ID (if none is supplied). Optional (0..1) but recommended for greatest accuracy if no Tax Area ID is supplied.
+    type: string
+    minLength: 1
+    maxLength: 60
+  mainDivision:
+    required: false
+    displayName: MainDivision
+    description: The proper name or the postal abbreviation of the state, province, or territory used to determine the Tax Area ID if none is supplied. Optional (0..1) but is recommended for greatest accuracy if no Tax Area ID is supplied.
+    type: string
+    minLength: 1
+    maxLength: 60
+  subDivision:
+    required: false
+    displayName: SubDivision
+    description: The name of the county used to determine the Tax Area ID if none is supplied. Optional (0..1) but is recommended for greatest accuracy if no Tax Area ID is supplied.
+    type: string
+    minLength: 1
+    maxLength: 60
+  postalCode:
+    required: false
+    displayName: PostalCode
+    description: The postal code used to determine the Tax Area ID (if none is supplied).
+    type: string
+    minLength: 1
+    maxLength: 20
+  country:
+    required: false
+    displayName: Country
+    description: The country used to determine the Tax Area ID (if none is supplied). You can use a Data Extract report to see the valid country values.)
+    type: string
+    minLength: 1
+    maxLength: 60
+  currencyConversion:
+    required: false
+    displayName: CurrencyConversion
+    description: |
+      The rate (multiplier) used for converting the transaction currency amount to the filing currency amount. Pass rate and the currency code (isoCurrencyCodeAlpha or isoCurrencyCodeNum) to have filing currency calculated if your configuration parameters are set up to do so.
+    type: Currency
+    properties: 
+      conversionRate:
+        required: false
+        type: number
+        format: double

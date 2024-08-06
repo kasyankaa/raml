@@ -1,0 +1,6 @@
+#%RAML 1.0 Trait
+description: RAML Trait supporting standard header variable enforcement that would apply to all system API's.
+usage: 1. Add this Exchange dependency to your System API specification project <br> 2. Declare an element under the _traits_ node in your main API spec file including the imported dependency main raml file <br> 3. Apply the trait to the system API resource by using the declared element as an item in the _is_ node 
+headers:
+  tracing_id?:
+    type: string

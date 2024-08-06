@@ -1,0 +1,55 @@
+#%RAML 1.0 DataType
+displayName: ImpositionToProcess
+description: |
+  Limits the taxes calculated for the transaction to a specific jurisdiction level and imposition type.
+type: object
+properties:
+  jurisdictionLevel:
+    required: true
+    displayName: JurisdictionLevel
+    description: Jurisdiction level structure.
+    type: string
+    enum:
+    - APO
+    - BOROUGH
+    - CITY
+    - COUNTRY
+    - COUNTY
+    - DISTRICT
+    - FPO
+    - LOCAL_IMPROVEMENT_DISTRICT
+    - PARISH
+    - PROVINCE
+    - SPECIAL_PURPOSE_DISTRICT
+    - STATE
+    - TERRITORY
+    - TOWNSHIP
+    - TRADE_BLOCK
+    - TRANSIT_DISTRICT
+  impositionType:
+    required: false
+    displayName: ImpositionType
+    description: The type description that is assigned to the imposition.
+    properties:
+      typeDescription:
+        required: false
+        displayName: typeDescription
+        description: The type description that is assigned to the imposition.
+        type: string
+      userDefined:
+        required: false
+        displayName: userDefined
+        description: |
+          An identifier for user-defined imposition type. This identifier is useful for troubleshooting.
+        type: boolean
+      impositionTypeId:
+        required: false
+        displayName: impositionTypeId
+        description: An identifier for the impositionType.
+        type: integer
+        format: int32
+      withholdingType:
+        required: false
+        displayName: withholdingType
+        description: withholding type of the impositionType.
+        type: string

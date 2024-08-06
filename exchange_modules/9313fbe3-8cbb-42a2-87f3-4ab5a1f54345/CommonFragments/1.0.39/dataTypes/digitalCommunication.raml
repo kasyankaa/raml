@@ -1,0 +1,11 @@
+#%RAML 1.0 DataType
+type: object
+description: Primitive class. Used to standardize digital comunication method data.
+properties:
+    identifier: string
+    method: 
+      type: !include enums/digitalCommunicationMethod.raml
+    methodType?:
+      type: !include enums/digitalCommunicationMethodType.raml
+    extension?: string | nil
+    

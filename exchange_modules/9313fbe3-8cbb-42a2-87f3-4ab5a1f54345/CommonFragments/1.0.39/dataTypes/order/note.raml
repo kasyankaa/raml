@@ -1,0 +1,30 @@
+#%RAML 1.0 DataType
+properties:
+  isVisibleToAll?:
+     type: boolean | nil
+  sequenceNumber?:
+     type: number | nil
+     example: 1
+  priorityCode?:
+     type: string | nil
+  message: #NoteText?
+     type: string
+     example: "Dog: Y, HighCeiling: Y"
+  reasonCode?:
+     type: string | nil
+     example: "PEO: Red Venture"
+  auditTransactionId?:
+    type: string | nil
+  contactReference?:
+    type: string | nil
+  contactTime?:
+    type: datetime | nil
+  contactType?:
+    type: string | nil
+  contactUser?:
+    type: string | nil
+  customerSatIndicator?:
+    description: The customer satisfaction level
+    type: string | nil
+  transactionId?:
+    type: string | nil
